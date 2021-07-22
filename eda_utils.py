@@ -56,6 +56,10 @@ def exclude_columns(df, excluded_columns):
 
 # -----------------------------------------------------------------
 def clean_df_mk1(df):
+    """
+    Cleaner function to be used to generate training data
+    """
+    
     # drop row where all col is missing
     df.dropna(how="all", inplace=True)
 
@@ -108,7 +112,8 @@ def clean_df_mk1(df):
         'Contract_month-to-month':'contract_monthly'
     }
     df.rename(columns=rename_dict, inplace=True)
-
+    
+    # tidying up numeric variables to the end of the dataframe
     colnames = list(df.columns)
     moved_colnames = ['tenure', 'MonthlyCharges', 'TotalCharges', 'Default']
     new_colnames = [name for name in colnames if name not in moved_colnames] + moved_colnames
@@ -117,6 +122,10 @@ def clean_df_mk1(df):
 
 
 def clean_df_deploy(df):
+    """
+    Cleaner function to be used to clean request data
+    """
+
     # drop row where all col is missing
     df.dropna(how="all", inplace=True)
 
@@ -175,6 +184,7 @@ def clean_df_deploy(df):
     }
     df.rename(columns=rename_dict, inplace=True)
 
+    # tidying up numeric variables to the end of the dataframe
     colnames = list(df.columns)
     moved_colnames = ['tenure', 'MonthlyCharges', 'TotalCharges']
     new_colnames = [name for name in colnames if name not in moved_colnames] + moved_colnames
@@ -183,6 +193,11 @@ def clean_df_deploy(df):
 
 
 def map_inputframe_modelframe(frames):
+    """
+    This function attempts to handle incoming json data to be predicted.
+    May cause error if the input is tweaked to be different with the one used
+    for training.
+    """
     input_columns = [
         'customerID', 'gender', 'SeniorCitizen', 'Partner', 'Dependents',
         'tenure', 'PhoneService', 'MultipleLines', 'InternetService',
