@@ -5,11 +5,8 @@ import numpy as np
 import eda_utils as et
 from flask import Flask, request
 
-UPLOAD_FOLDER = '.'
 
 app = Flask(__name__)
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['ENV'] = 'development'
 app.config['DEBUG'] = True
 app.config['TESTING'] = False
@@ -18,6 +15,7 @@ app.config['TESTING'] = False
 filename = "models/ada.sav"
 ada = pickle.load(open(filename, 'rb'))
 
+# ---------------------------- routes
 @app.route('/')
 def svc_default():
     return "It is connected~"
