@@ -3,7 +3,7 @@ import json
 import pickle
 import numpy as np
 import eda_utils as et
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, request
 
 UPLOAD_FOLDER = '.'
 
