@@ -15,8 +15,10 @@ def test_json_prediction(host='http://127.0.0.1:5000/', data=False):
     obj = json.loads(response.content)
     print(obj['prediction'])
 
+
 if __name__ == "__main__":
 
+    # sample data for request
     frames = [
         ['5575-GNVDE', 'Male', 0.0, 'No', 'No', 34.0, 'Yes', 'No', 'DSL', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'One year', 'No', 'Mailed check', 56.95, 1889.5],
         ['3668-QPYBK', 'Male', 0.0, 'No', 'No', 2.0, 'Yes', 'No', 'DSL', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Month-to-month', 'Yes', 'Mailed check', 53.85, 108.15],
