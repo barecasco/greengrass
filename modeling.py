@@ -74,7 +74,7 @@ def generate_train_test(excluded_columns=[]):
 
 # After some comparison, adaboost is selected.
 
-# shown below is the selected algorithm, adaptive boost of trees
+# shown below is the selected algorithm, adaptive boost of trees with selected hyperparameters
 
 # ================================================================= ADAPTIVE BOOSTING
 from sklearn.ensemble import AdaBoostClassifier
