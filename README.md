@@ -14,8 +14,7 @@ Run the image using Docker Desktop by exposing port 5000, or run in detached mod
 ```docker run -dp 5000:5000 greengrass```
 
 ### Testing the app
-I've created `post_test.py` file that will send requests to localhost:5000. Run the file using python after the image is run.
-Please note that running this test to an app that is executed by python (not docker container) will result in address error.
+I've created `post_test.py` file that will send requests to localhost:5000. Run the file using python after the docker image is run.
 
 ### Analysis
 The thoughts on modeling are writen using comment in `modeling.py` file.
